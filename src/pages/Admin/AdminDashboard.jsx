@@ -97,30 +97,44 @@ const AdminDashboard = () => {
 
     // Update stock in the database
     const updateStock = async (productId) => {
-        const stockValue = newStock[productId];
+        const token = localStorage.getItem('token');
+        const updatedStock = newStock[productId];
     
-        if (!stockValue) {
-            setError('Stock value is required');
-            return;
-        }
+        if (updatedStock && updatedStock > 0) {
+            try {
+                // API call to update the stock
+                const response = await axios.put(
+                    'https://vynceianoani.helioho.st/cedeno/update.php',
+                    {
+                        product_id: productId,  // Send product_id and stock in the request body
+                        stock: updatedStock,
+                    },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
     
-        try {
-            // URL format depends on your API's design
-            await axios.put(
-                `https://vynceianoani.helioho.st/cedeno/inventory.php?id=${productId}`, // or `/inventory.php/${productId}`
-                { newStock: stockValue }
-            );
-            
-            setInventory((prevInventory) =>
-                prevInventory.map((item) =>
-                    item.product_id === productId ? { ...item, stocks: stockValue } : item
-                )
-            );
-            setEditingProduct(null); // Exit editing mode after successful update
-        } catch {
-            setError('Failed to update stock');
+                if (response.data.success) {
+                    // Update the inventory state with the new stock
+                    setInventory((prevInventory) =>
+                        prevInventory.map((item) =>
+                            item.product_id === productId ? { ...item, stocks: updatedStock } : item
+                        )
+                    );
+                    setEditingProduct(null); // Clear the editing state
+                } else {
+                    setError('Failed to update stock');
+                }
+            } catch (err) {
+                setError('Error updating stock');
+            }
+        } else {
+            setError('Invalid stock value');
         }
     };
+    
     
 
     // Chart data for total sales
