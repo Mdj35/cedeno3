@@ -12,7 +12,9 @@ function Payment() {
     const handleGCashPayment = async () => {
         try {
             const amountInCentavos = Math.round(totalPrice * 100); // Convert to centavos
-            const response = await axios.post('http://localhost:5000/api/payment-link', {
+
+            // PayMongo payment link creation API call
+            const response = await axios.post('https://api.paymongo.com/v1/links', {
                 data: {
                     attributes: {
                         amount: amountInCentavos,
@@ -20,19 +22,32 @@ function Payment() {
                         remarks: "none"
                     }
                 }
+            }, {
+                headers: {
+                    'accept': 'application/json',
+                    'authorization': `Basic ${btoa('sk_test_qktYNDx5UjE2gznY1es6vnba')}`, // Encoding secret key
+                    'content-type': 'application/json'
+                }
             });
 
+            // Handling the response
+            console.log('Payment link created:', response.data);
             if (response.data && response.data.data && response.data.data.attributes) {
-                // Redirect to the payment link
+                // Open the payment link in a new tab
                 window.open(response.data.data.attributes.checkout_url, '_blank');
+
+                // Optionally navigate to homepage after payment initiation
                 setTimeout(() => {
-                    navigate('/order'); // Redirect to the homepage after initiating payment
+                    navigate('/');
                 }, 3000); // Adjust delay if necessary
             }
         } catch (error) {
+            // Handle errors gracefully
             if (error.response) {
+                console.error('Payment error:', error.response.data);
                 setError(`Payment error: ${error.response.data.message || 'An error occurred'}`);
             } else {
+                console.error('Payment error:', error);
                 setError('An unexpected error occurred. Please try again.');
             }
         }
