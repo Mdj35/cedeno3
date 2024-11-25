@@ -1,0 +1,131 @@
+.gradientBackground {
+    background: linear-gradient(135deg, #ff7b00 0%, #ff7f7f 50%, #ff0000 100%); /* Gradient background */
+    height: 100vh; /* Full screen height */
+    display: flex; /* Center content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+.container {
+    max-width: 800px; /* Adjusted for a wider layout */
+    margin: 0 auto;
+    padding: 20px; /* Padding inside the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Align children vertically */
+    padding-left: 40px; /* Increase left padding */
+    padding-right: 40px; /* Increase right padding */
+}
+
+.card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out; /* Smooth transition for the card */
+    padding: 20px; /* Inner padding for card */
+    margin: 20px; /* Add margin to create space around the card */
+    width: calc(100% - 80px); /* Adjust width to accommodate margin */
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+p {
+    text-align: center;
+}
+
+.flex {
+    display: flex; /* Enable flexbox */
+}
+
+.justify-center {
+    justify-content: center; /* Center content horizontally */
+}
+
+.items-center {
+    align-items: center; /* Center content vertically */
+}
+
+.paymentOption {
+    width: 150px; /* Fixed width for payment options */
+    text-align: center;
+    transition: transform 0.3s ease; /* Smooth scaling transition */
+    cursor: pointer; /* Change cursor to pointer */
+    display: flex; /* Enable flexbox for internal content */
+    flex-direction: column; /* Align image and text vertically */
+    justify-content: center; /* Vertically center the image and text */
+    align-items: center; /* Horizontally center the image and text */
+}
+
+.paymentOption img {
+    width: 100%; /* Full width to fit the container */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s; /* Transition for scaling */
+    margin-left: 390px;
+}
+
+.paymentOption:hover img {
+    transform: scale(1.1); /* Scale image on hover */
+    
+}
+
+.paymentOption p {
+    margin-top: 8px;
+    font-weight: bold; /* Bold font for labels */
+    color: #333; /* Optional: Set the text color */
+    margin-left: 390px;
+}
+.error {
+    color: red; /* Error message color */
+    text-align: center; /* Center align error messages */
+}
+
+.text-sm {
+    font-size: 0.875rem; /* Smaller text size */
+}
+
+.text-gray-500 {
+    color: #6B7280; /* Gray color for text */
+}
+
+.text-blue-500 {
+    color: #3B82F6; /* Blue color for Paymongo text */
+}
+
+.font-semibold {
+    font-weight: 600; /* Semi-bold font weight */
+}
+
+.mt-4 {
+    margin-top: 1rem; /* Top margin */
+}
+
+.mb-4 {
+    margin-bottom: 1rem; /* Bottom margin */
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem; /* Bottom margin */
+}
+
+.p-6 {
+    padding: 1.5rem; /* Padding for card */
+}
+
+.rounded-lg {
+    border-radius: 0.5rem; /* Large border radius */
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Large shadow */
+}
+
+@media (max-width: 768px) {
+    .paymentOption {
+        width: 120px; /* Adjust width for smaller screens */
+    }
+}

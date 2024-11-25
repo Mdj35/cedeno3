@@ -1,0 +1,114 @@
+.header {
+    background: rgb(255, 255, 255);
+    padding: 0; /* No padding on the header itself */
+    border-bottom: 1px solid #e72929;
+    transition: background-color 0.3s, border-bottom 0.3s; /* Smooth transition */
+    position: fixed; /* Keep the header fixed at the top */
+    top: 0; /* Align at the top */
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays on top */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.scrolled {
+    background: rgba(255, 255, 255, 0); /* Transparent when scrolled */
+    border-bottom: 1px solid rgba(231, 41, 41, 0.5); /* Faded border */
+}
+
+/* Adjust only the background height */
+.header > .container {
+    padding: 5px 0; /* Reduced padding for a smaller background */
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.logo {
+    font-weight: bold;
+    padding: 0.3rem 1rem; /* Padding for logo */
+    font-size: 1rem; /* Adjust font size */
+}
+
+.header ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+}
+
+.header ul a {
+    padding: 0.3rem 1rem; /* Adjust padding for the links */
+    display: inline-block;
+}
+
+.menu_container {
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    z-index: 1;
+    background-color: whitesmoke;
+    display: none;
+}
+
+.menu_container:hover .menu {
+    display: block;
+}
+
+.menu a {
+    width: 100%;
+    min-width: 6rem; /* Reduced menu width */
+}
+
+/* Cart Icon and Count */
+.cartLink {
+    position: relative;
+    display: inline-block;
+}
+
+.cartIcon {
+    width: 18px; /* Smaller cart icon */
+    height: 18px; /* Smaller cart icon */
+}
+
+.cartCount {
+    position: absolute;
+    top: -3px; /* Move cart count closer to the icon */
+    left: -3px; /* Move cart count closer to the icon */
+    background-color: #ff4d4d;
+    color: white;
+    padding: 0.1rem 0.3rem; /* Smaller padding for cart count */
+    border-radius: 50%;
+    font-size: 0.5rem; /* Smaller font size for cart count */
+    font-weight: bold;
+}
+
+.header a {
+    color: #af1313;
+    transition: color 0.3s;
+    font-size: 0.75rem; /* Reduce font size for links */
+}
+
+.header a:hover {
+    animation: wave 1s infinite;
+    background: linear-gradient(180deg, #bb4848 0%, #ff7f7f 50%, #ffd2d2 100%);
+    color: white;
+    cursor: pointer;
+}
+
+/* Define waving animation */
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-2px);
+    }
+    50% {
+        transform: translateY(2px);
+    }
+    75% {
+        transform: translateY(-1px);
+    }
+}

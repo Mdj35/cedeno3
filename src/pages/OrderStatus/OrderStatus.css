@@ -1,0 +1,138 @@
+/* src/pages/OrderStatus/OrderStatus.css */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    border-radius: 5px; /* Adds rounding to table cells */
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #eaf4ff; /* Softer hover effect */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.order {
+    width: 100%;
+    margin-top: 2.3%;
+    height: 860px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    overflow-y: scroll;
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px; /* Adds spacing around the container */
+    border-radius: 10px; /* Rounds container edges */
+}
+
+.order-item {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+    width: 57%;
+    height: 200px; /* Increased height for larger rows */
+    margin-bottom: 10px; /* Adjusted margin for better spacing */
+    padding: 15px; /* Added padding for larger content area */
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Adds rounding to order cards */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.order-item:hover {
+    transform: scale(1.02); /* Slightly enlarges on hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+}
+
+
+.order-id, .id, .price, .qty, .status {
+    width: 20%;
+    height: 100%;
+}
+
+.head {
+    width: 50%;
+    height: 7%;
+    background: #fff;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 10px;
+    border-radius: 8px; /* Rounds edges of header */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1); /* Adds shadow for separation */
+}
+
+.order-id-label, .id-label, .price-label, .qty-label, .status-label {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding-left: 7%;
+    font-weight: bold;
+}
+
+.list {
+    width: 100%;
+    height: 800px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.imagesz {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px; /* Rounds image corners */
+    object-fit: cover; /* Ensures the image fits well */
+    transition: transform 0.3s ease; /* Smooth scaling */
+}
+
+.imagesz:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+
+/* New styles for order status */
+.status-delivered {
+    background-color: #28a745; /* Green color for Delivered */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px; /* Rounded corners for a soft appearance */
+    font-weight: bold;
+    text-align: center;
+    width: 100px; /* Fixed width for consistency */
+    text-transform: capitalize;
+}
+
+.status-pending {
+    background-color: #ffc107; /* Yellow color for Pending */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    text-align: center;
+    width: 100px;
+    text-transform: capitalize;
+}
+
+/* Optional hover effect for status labels */
+.status-delivered:hover, .status-pending:hover {
+    opacity: 0.8; /* Slightly transparent on hover */
+    cursor: pointer; /* Makes it clear it's interactive */
+}
